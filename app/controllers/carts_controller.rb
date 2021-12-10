@@ -17,7 +17,7 @@ class CartsController < ApplicationController
   def update_product
     status = :not_found
     data = nil
-    if request.put?
+    if request.put? and (cart_product = @user.carts.open.cart_products.find_by(product_id: params[:product_id]))
       cart_product = @user.carts.open.cart_products.find_by(
         product_id: params[:product_id]
       )

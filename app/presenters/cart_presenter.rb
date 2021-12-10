@@ -28,6 +28,7 @@ class CartPresenter
     products = []
     @user.carts.open.cart_products.each do |cart_product|
       products.push({
+        id: cart_product.product.id,
         title: cart_product.product.title,
         description: cart_product.product.description,
         image_url: cart_product.product.image_url,
