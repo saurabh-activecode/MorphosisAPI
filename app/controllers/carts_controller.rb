@@ -8,22 +8,41 @@ class CartsController < ApplicationController
   end
 
   def add_product
-    render json: @user.carts.open.cart_products.create(
-      product_id: params[:product_id],
-      quantity: params[:quantity]
-    )
+    product = Product.find(params[:product_id])
+    stock = product.stock
+    if params[:quantity].to_i > stock.to_i
+      data = { message: 'Cannot add more products than available' }
+      status = :unprocessable_entity
+    else
+      data = @user.carts.open.cart_products.create(
+        product_id: params[:product_id],
+        quantity: params[:quantity]
+      )
+      status = :ok
+    end
+
+    render json: data, status: status
   end
 
   def update_product
     status = :not_found
+    product = Product.find(params[:product_id])
+    stock = product.stock
     data = nil
+
     if request.put? and (cart_product = @user.carts.open.cart_products.find_by(product_id: params[:product_id]))
-      cart_product = @user.carts.open.cart_products.find_by(
-        product_id: params[:product_id]
-      )
-      data = cart_product.update(quantity: params[:quantity])
-      status = :ok
+      if params[:quantity].to_i > stock.to_i
+        data = { message: 'Cannot add more products than available' }
+        status = :unprocessable_entity
+      else
+        cart_product = @user.carts.open.cart_products.find_by(
+          product_id: params[:product_id]
+        )
+        data = cart_product.update(quantity: params[:quantity])
+        status = :ok
+      end
     end
+
     render json: data, status: status
   end
 
