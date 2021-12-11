@@ -17,8 +17,13 @@ Currency.create(name: 'Thai Baht', code: 'THB', country: Country.find_by(code: '
 Region.create(title: 'United States', tax: 5.5, country: Country.find_by(code: 'US'), currency: Currency.find_by(code: 'USD')) unless Region.find_by(title: 'United States').present?
 Region.create(title: 'Thailand', tax: 5.5, country: Country.find_by(code: 'TH'), currency: Currency.find_by(code: 'THB')) unless Region.find_by(title: 'Thailand').present?
 
-User.create(name: 'Saurabh Sharma', email: 'saurabh@email.com', password_digest: BCrypt::Password.create('password123'), admin: false, region: Region.find_by(title: 'United States')) unless User.find_by(email: 'saurabh@email.com').present?
-User.create(name: 'Jim Carrey', email: 'jim@email.com', password_digest: BCrypt::Password.create('password456'), admin: true, region: Region.find_by(title: 'United States')) unless User.find_by(email: 'jim@email.com').present?
+# US Region users
+User.create(name: 'Bill Murray', email: 'bill@email.com', password_digest: BCrypt::Password.create('password'), admin: false, region: Region.find_by(title: 'United States')) unless User.find_by(email: 'bill@email.com').present?
+User.create(name: 'Jim Carrey', email: 'jim@email.com', password_digest: BCrypt::Password.create('password'), admin: true, region: Region.find_by(title: 'United States')) unless User.find_by(email: 'jim@email.com').present?
+
+# TH Region users
+User.create(name: 'Will SMith', email: 'will@email.com', password_digest: BCrypt::Password.create('password'), admin: false, region: Region.find_by(title: 'Thailand')) unless User.find_by(email: 'will@email.com').present?
+User.create(name: 'Paul Rudd', email: 'paul@email.com', password_digest: BCrypt::Password.create('password'), admin: true, region: Region.find_by(title: 'Thailand')) unless User.find_by(email: 'paul@email.com').present?
 
 Product.create(
   title: 'Product 1 US',

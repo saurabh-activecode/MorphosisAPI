@@ -59,6 +59,10 @@ class UsersController < ApplicationController
     render json: Region.all, status: :ok
   end
 
+  def region
+    render json: Region.find(params[:region_id]), status: :ok
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

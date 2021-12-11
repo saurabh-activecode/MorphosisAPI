@@ -57,7 +57,7 @@ Response
 <br/>
 
 ---
-### Get Regions
+### Get Regions (All)
 
 ```ruby
 EndPoint
@@ -91,6 +91,34 @@ Response
         "updated_at": "2021-12-10T20:43:27.191Z"
     }
 ]
+```
+
+<br/>
+
+---
+### Get Region (Singular)
+
+```ruby
+EndPoint
+http://127.0.0.1:3000/region/<region_id>
+```
+
+```sh
+Example cURL Request
+curl --location --request GET 'http://127.0.0.1:3000/region/1'
+```
+
+```sh
+Response
+{
+    "id": 1,
+    "title": "United States",
+    "country_id": 3,
+    "currency_id": 1,
+    "tax": 5.5,
+    "created_at": "2021-12-10T20:43:27.180Z",
+    "updated_at": "2021-12-10T20:43:27.180Z"
+}
 ```
 
 <br/>
