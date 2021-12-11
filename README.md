@@ -1,5 +1,24 @@
 # README
+---
 
+## Deployment
+```sh
+Ruby Version 3.0.0
+Rails version 6.1.4.1
+```
+
+### Instructions
+```sh
+bundle install
+rails db:create db:migrate db:seed
+rails s
+```
+<br/>
+<br/>
+<br/>
+
+------
+------
 ## EndPoints
 <br/>
 
@@ -37,6 +56,7 @@ Response
 
 <br/>
 
+---
 ### Get Regions
 
 ```ruby
@@ -75,6 +95,7 @@ Response
 
 <br/>
 
+---
 ### Get User
 
 ```ruby
@@ -104,6 +125,7 @@ Response
 
 <br/>
 
+---
 ### Get Products by Region
 
 ```ruby
@@ -149,6 +171,7 @@ Response
 
 <br/>
 
+---
 ### Add Product
 
 ```ruby
@@ -176,6 +199,7 @@ Response
 
 <br/>
 
+---
 ### Uodate Product
 
 ```ruby
@@ -196,6 +220,7 @@ true
 
 <br/>
 
+---
 ### Remove Product
 
 ```ruby
@@ -223,6 +248,7 @@ Response
 
 <br/>
 
+---
 ### Get Cart
 
 ```ruby
@@ -277,6 +303,7 @@ Response
 
 <br/>
 
+---
 ### User Login
 
 ```ruby
