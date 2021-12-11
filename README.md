@@ -13,6 +13,18 @@ bundle install
 rails db:create db:migrate db:seed
 rails s
 ```
+
+### User Creds
+```sh
+US Region Users
+  bill@email.com  |  password
+  jim@email.com   |  password
+
+TH Region Users
+  will@email.com  |  password
+  paul@email.com  |  password
+```
+
 <br/>
 <br/>
 <br/>
